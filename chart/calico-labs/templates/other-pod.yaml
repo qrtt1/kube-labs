@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: primehub-app
+  name: primehub-other
   labels:
-    app: primehub-app
+    app: primehub-other
 spec:
   containers:
   - image: qrtt1/debug-tools:v0.3
@@ -11,7 +11,6 @@ spec:
     - bash
     - -c
     - |
-      echo "yo"
       python3 -mhttp.server 5000
     imagePullPolicy: IfNotPresent
     name: notebook
@@ -26,8 +25,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: primehub-app
-  name: primehub-app
+    app: primehub-other
+  name: primehub-other
 spec:
   ports:
   - name: http
@@ -35,4 +34,4 @@ spec:
     protocol: TCP
     targetPort: 5000
   selector:
-    app: primehub-app
+    app: primehub-other

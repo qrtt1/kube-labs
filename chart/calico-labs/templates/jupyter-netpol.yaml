@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+    meta.helm.sh/release-name: primehub
+    meta.helm.sh/release-namespace: hub
+  labels:
+    app: jupyterhub
+    app.kubernetes.io/managed-by: Helm
+    chart: jupyterhub-0.10.6
+    component: singleuser
+    heritage: Helm
+    release: primehub
+  name: singleuser
+spec:
+  egress:
+  - ports:
+    - port: 8081
+      protocol: TCP
+    to:
+    - podSelector:
+        matchLabels:
+          app: jupyterhub
+          component: hub
+          release: primehub
+  - ports:
+    - port: 53
+      protocol: UDP
+    - port: 53
+      protocol: TCP
+  - to:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+        except:
+        - 169.254.169.254/32
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          hub.jupyter.org/network-access-singleuser: "true"
+    ports:
+    - port: notebook-port
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app: jupyterhub
+      component: singleuser-server
+      release: primehub
+  policyTypes:
+  - Ingress
+  - Egress

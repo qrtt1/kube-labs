@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: singleuser-server
+  labels:
+    app: jupyterhub
+    component: singleuser-server
+    release: primehub
+spec:
+  containers:
+  - image: qrtt1/debug-tools:v0.3
+    command:
+    - bash
+    - -c
+    - |
+      echo "yo"
+      python3 -mhttp.server 5000
+    imagePullPolicy: IfNotPresent
+    name: notebook
+    ports:
+    - containerPort: 5000
+      protocol: TCP
+    securityContext:
+      runAsGroup: 0
+      runAsUser: 0
