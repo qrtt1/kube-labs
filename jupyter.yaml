@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    project: phusersxxx
+  name: jupyter-xxx
+  namespace: hub
+spec:
+  containers:
+  - image: infuseai/docker-stacks:base-notebook-a7f9696a
+    imagePullPolicy: IfNotPresent
+    name: notebook
+    ports:
+    - containerPort: 8888
+      name: notebook-port
+      protocol: TCP
+    securityContext:
+      runAsGroup: 0
+      runAsUser: 0

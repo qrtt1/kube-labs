@@ -1,0 +1,475 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: "2021-04-01T02:15:22Z"
+    generation: 1
+    labels:
+      app: primehub-app
+      primehub.io/group: escaped-phusers
+      primehub.io/phapplication: app-code-server-o70ty
+    name: app-code-server-o70ty-group
+    namespace: hub
+    ownerReferences:
+    - apiVersion: primehub.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: PhApplication
+      name: code-server-o70ty
+      uid: 74727fae-20be-4b0d-b5ba-561b818763a2
+    resourceVersion: "10687699"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/app-code-server-o70ty-group
+    uid: 81835cca-dad9-43aa-8a1d-d6c1deb9852a
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            primehub.io/group: escaped-phusers
+      ports:
+      - port: 8080
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        primehub.io/phapplication: app-code-server-o70ty
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: "2021-04-01T02:15:22Z"
+    generation: 1
+    labels:
+      app: primehub-app
+      primehub.io/group: escaped-phusers
+      primehub.io/phapplication: app-code-server-o70ty
+    name: app-code-server-o70ty-proxy
+    namespace: hub
+    ownerReferences:
+    - apiVersion: primehub.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: PhApplication
+      name: code-server-o70ty
+      uid: 74727fae-20be-4b0d-b5ba-561b818763a2
+    resourceVersion: "10687701"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/app-code-server-o70ty-proxy
+    uid: 2a18d0ee-b4ad-4ee4-acf9-2b888afeaf6c
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            primehub.io/phapplication: app-code-server-o70ty
+      ports:
+      - port: 8080
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        primehub.io/phapplication: app-code-server-o70ty
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: "2021-04-01T02:13:12Z"
+    generation: 1
+    labels:
+      app: primehub-app
+      primehub.io/group: escaped-phusers
+      primehub.io/phapplication: app-mlflow-5433d
+    name: app-mlflow-5433d-group
+    namespace: hub
+    ownerReferences:
+    - apiVersion: primehub.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: PhApplication
+      name: mlflow-5433d
+      uid: 012dced5-4bed-45aa-bd1f-7b1c62d9755c
+    resourceVersion: "10687155"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/app-mlflow-5433d-group
+    uid: 58806602-398c-4468-afca-49faf79b9391
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            primehub.io/group: escaped-phusers
+      ports:
+      - port: 5000
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        primehub.io/phapplication: app-mlflow-5433d
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: "2021-04-01T02:13:12Z"
+    generation: 1
+    labels:
+      app: primehub-app
+      primehub.io/group: escaped-phusers
+      primehub.io/phapplication: app-mlflow-5433d
+    name: app-mlflow-5433d-proxy
+    namespace: hub
+    ownerReferences:
+    - apiVersion: primehub.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: PhApplication
+      name: mlflow-5433d
+      uid: 012dced5-4bed-45aa-bd1f-7b1c62d9755c
+    resourceVersion: "10687156"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/app-mlflow-5433d-proxy
+    uid: 2c068951-ab75-459d-9231-ef50889f11f0
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            primehub.io/phapplication: app-mlflow-5433d
+      ports:
+      - port: 5000
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        primehub.io/phapplication: app-mlflow-5433d
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: "2021-04-01T02:20:09Z"
+    generation: 1
+    labels:
+      app: primehub-app
+      primehub.io/group: escaped-phusers
+      primehub.io/phapplication: app-streamlit-jpfo4
+    name: app-streamlit-jpfo4-group
+    namespace: hub
+    ownerReferences:
+    - apiVersion: primehub.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: PhApplication
+      name: streamlit-jpfo4
+      uid: 4612eeb7-2b97-4f69-95de-78fd3db83b84
+    resourceVersion: "10688706"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/app-streamlit-jpfo4-group
+    uid: f8711985-3303-40b2-a4c1-89b4b8ff7992
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            primehub.io/group: escaped-phusers
+      ports:
+      - port: 8501
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        primehub.io/phapplication: app-streamlit-jpfo4
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    creationTimestamp: "2021-04-01T02:20:09Z"
+    generation: 1
+    labels:
+      app: primehub-app
+      primehub.io/group: escaped-phusers
+      primehub.io/phapplication: app-streamlit-jpfo4
+    name: app-streamlit-jpfo4-proxy
+    namespace: hub
+    ownerReferences:
+    - apiVersion: primehub.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: PhApplication
+      name: streamlit-jpfo4
+      uid: 4612eeb7-2b97-4f69-95de-78fd3db83b84
+    resourceVersion: "10688707"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/app-streamlit-jpfo4-proxy
+    uid: 61aa5010-413f-4ca4-8ac2-cd17ed544bd1
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            primehub.io/phapplication: app-streamlit-jpfo4
+      ports:
+      - port: 8501
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        primehub.io/phapplication: app-streamlit-jpfo4
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: primehub
+      meta.helm.sh/release-namespace: hub
+    creationTimestamp: "2021-04-01T01:44:40Z"
+    generation: 1
+    labels:
+      app: jupyterhub
+      app.kubernetes.io/managed-by: Helm
+      chart: jupyterhub-0.10.6
+      component: hub
+      heritage: Helm
+      release: primehub
+    name: hub
+    namespace: hub
+    resourceVersion: "10680055"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/hub
+    uid: eab4dc06-79af-4152-921e-e55ad390302a
+  spec:
+    egress:
+    - ports:
+      - port: 8001
+        protocol: TCP
+      to:
+      - podSelector:
+          matchLabels:
+            app: jupyterhub
+            component: proxy
+            release: primehub
+    - ports:
+      - port: 8888
+        protocol: TCP
+      to:
+      - podSelector:
+          matchLabels:
+            app: jupyterhub
+            component: singleuser-server
+            release: primehub
+    - ports:
+      - port: 53
+        protocol: UDP
+      - port: 53
+        protocol: TCP
+    - to:
+      - ipBlock:
+          cidr: 0.0.0.0/0
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            hub.jupyter.org/network-access-hub: "true"
+      ports:
+      - port: http
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        app: jupyterhub
+        component: hub
+        release: primehub
+    policyTypes:
+    - Ingress
+    - Egress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: primehub
+      meta.helm.sh/release-namespace: hub
+    creationTimestamp: "2021-04-01T01:44:40Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: primehub
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: primehub-shared-space-tusd
+      helm.sh/chart: primehub-1.0.0
+    name: primehub-shared-space-tusd-ingress
+    namespace: hub
+    resourceVersion: "10680058"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/primehub-shared-space-tusd-ingress
+    uid: 25c1de16-1be6-43cd-a8c3-b1b0289bb7c6
+  spec:
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            app.kubernetes.io/name: primehub-graphql
+      ports:
+      - port: 1080
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        app.kubernetes.io/name: primehub-shared-space-tusd
+    policyTypes:
+    - Ingress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: primehub
+      meta.helm.sh/release-namespace: hub
+    creationTimestamp: "2021-04-01T01:44:40Z"
+    generation: 1
+    labels:
+      app: jupyterhub
+      app.kubernetes.io/managed-by: Helm
+      chart: jupyterhub-0.10.6
+      component: proxy
+      heritage: Helm
+      release: primehub
+    name: proxy
+    namespace: hub
+    resourceVersion: "10680056"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/proxy
+    uid: 0932d8c1-4942-4d9f-845d-43183912eb29
+  spec:
+    egress:
+    - ports:
+      - port: 8081
+        protocol: TCP
+      to:
+      - podSelector:
+          matchLabels:
+            app: jupyterhub
+            component: hub
+            release: primehub
+    - ports:
+      - port: 8888
+        protocol: TCP
+      to:
+      - podSelector:
+          matchLabels:
+            app: jupyterhub
+            component: singleuser-server
+            release: primehub
+    - ports:
+      - port: 53
+        protocol: UDP
+      - port: 53
+        protocol: TCP
+    - to:
+      - ipBlock:
+          cidr: 0.0.0.0/0
+    ingress:
+    - ports:
+      - port: http
+        protocol: TCP
+      - port: https
+        protocol: TCP
+    - from:
+      - podSelector:
+          matchLabels:
+            hub.jupyter.org/network-access-proxy-http: "true"
+      ports:
+      - port: http
+        protocol: TCP
+    - from:
+      - podSelector:
+          matchLabels:
+            hub.jupyter.org/network-access-proxy-api: "true"
+      ports:
+      - port: api
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        app: jupyterhub
+        component: proxy
+        release: primehub
+    policyTypes:
+    - Ingress
+    - Egress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: primehub
+      meta.helm.sh/release-namespace: hub
+    creationTimestamp: "2021-04-01T01:44:40Z"
+    generation: 1
+    labels:
+      app: jupyterhub
+      app.kubernetes.io/managed-by: Helm
+      chart: jupyterhub-0.10.6
+      component: singleuser
+      heritage: Helm
+      release: primehub
+    name: singleuser
+    namespace: hub
+    resourceVersion: "10680057"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/singleuser
+    uid: 7c5d206b-8d97-46ec-a2d6-b5aff360e25f
+  spec:
+    egress:
+    - ports:
+      - port: 8081
+        protocol: TCP
+      to:
+      - podSelector:
+          matchLabels:
+            app: jupyterhub
+            component: hub
+            release: primehub
+    - ports:
+      - port: 53
+        protocol: UDP
+      - port: 53
+        protocol: TCP
+    - to:
+      - ipBlock:
+          cidr: 0.0.0.0/0
+          except:
+          - 169.254.169.254/32
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            hub.jupyter.org/network-access-singleuser: "true"
+      ports:
+      - port: notebook-port
+        protocol: TCP
+    podSelector:
+      matchLabels:
+        app: jupyterhub
+        component: singleuser-server
+        release: primehub
+    policyTypes:
+    - Ingress
+    - Egress
+- apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: primehub
+      meta.helm.sh/release-namespace: hub
+    creationTimestamp: "2021-04-06T04:15:35Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: primehub
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: jupyter-phapp
+    name: singleuser-ph-applications
+    namespace: hub
+    resourceVersion: "10791923"
+    selfLink: /apis/networking.k8s.io/v1/namespaces/hub/networkpolicies/singleuser-ph-applications
+    uid: dd4b6da5-3b28-4766-919c-d4b0d38c5d04
+  spec:
+    egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            app: primehub-app
+    podSelector:
+      matchLabels:
+        app: primehub
+        component: singleuser-server
+        release: primehub
+    policyTypes:
+    - Egress
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

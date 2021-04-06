@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    primehub.io/phapplication: app-mlflow-5433d
+  name: sample
+  namespace: hub
+spec:
+  containers:
+  - image: qrtt1/debug-tools:v0.3
+    command:
+    - bash
+    - -c
+    - |
+      echo "yo"
+      sleep 10000
+    imagePullPolicy: IfNotPresent
+    name: notebook
+    ports:
+    - containerPort: 5000
+      protocol: TCP
+    securityContext:
+      runAsGroup: 0
+      runAsUser: 0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: primehub-app
+    primehub.io/group: escaped-phusers
+    primehub.io/phapplication: app-mlflow-5433d
+  name: app-mlflow-5433d
+  namespace: hub
+spec:
+  ports:
+  - name: http
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    primehub.io/phapplication: app-mlflow-5433d
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client
+  namespace: hub
+spec:
+  containers:
+  - image: qrtt1/debug-tools:v0.3
+    command:
+    - bash
+    - -c
+    - |
+      echo "yo"
+      sleep 10000
+    imagePullPolicy: IfNotPresent
+    name: notebook
+    securityContext:
+      runAsGroup: 0
+      runAsUser: 0
+---
